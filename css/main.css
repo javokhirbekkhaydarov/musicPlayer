@@ -1,0 +1,171 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: linear-gradient(
+    0deg,
+    rgb(88, 33, 190) 34%,
+    rgba(64, 14, 110, 0.6) 72%
+  );
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  overflow: hidden;
+}
+.images {
+  /* background-image: url(../img/Turn\ It\ Up.jpg); */
+  width: 100%;
+  height: auto;
+  z-index: 0;
+  display: flex;
+  border-radius: 0px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* filter: blur(1px); */
+}
+
+.music-container {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid #fff;
+  border-radius: 15px;
+  /* box-shadow: 0  20px 20px rgb(114, 81, 233); */
+  display: flex;
+  padding: 20px 30px;
+  position: relative;
+  margin: 100px 0;
+  z-index: 3;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-container {
+  position: relative;
+  width: 110px;
+}
+.img-container img {
+  border-radius: 50%;
+  object-fit: cover;
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  animation: rotate 3s linear infinite;
+
+  animation-play-state: paused;
+}
+
+.music-container.play .img-container img {
+  animation-play-state: running;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.action-btn {
+  background: transparent;
+  border: 0;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  padding: 10px;
+  margin: 0 10px;
+  font-size: 20px;
+}
+#title {
+  color: #fff;
+  z-index: 999;
+  font-size: 30px;
+}
+
+.action-btn-big {
+  color: rgb(193, 189, 194);
+  font-size: 30px;
+}
+.action-btn:focus {
+  outline: none;
+}
+
+.music-info {
+  background: transparent;
+  border-radius: 15px 15px 0px 0px;
+  position: absolute;
+  top: 0;
+  width: 90%;
+  left: 20px;
+  padding: 10px 10px 10px 150px;
+  z-index: 0;
+  opacity: 0;
+  transform: translateY(0%);
+  transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+}
+
+.music-container.play .music-info {
+  opacity: 1;
+  transform: translateY(-100%);
+}
+
+.music-info h4 {
+  margin: 0;
+}
+
+.progress-container {
+  background: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px 0;
+  height: 5px;
+  width: 100%;
+}
+
+.progress {
+  background: rgba(53, 11, 109, 0.918);
+  border-radius: 5px;
+  height: 100%;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+@media (min-width: 0px) and (max-width: 600px) {
+  section {
+    width: 100%;
+  }
+  .images {
+    width: cover;
+    height: 100%;
+  }
+
+  .music-container {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 auto;
+  }
+  #title {
+    font-size: 20px;
+    width: 100%;
+  }
+}
